@@ -1,0 +1,43 @@
+//Registrasi
+
+UNF
+Registrasi(RegistrationID, RegistrationDate, 
+CustomerID, CustomerName, CustomerGender, 
+CustomerAddress, CustomerPhone, CustomerEmail, 
+CustomerDOB, StaffName, StaffPosition)
+
+1NF
+//Hapus kolom yang didapatkan dari hasil perhitungan
+//Hapus kolom yang tidak diperlukan
+//pisahkan data yang berulang
+//tambahkan primary key DONE
+
+Registrasi(RegistrationID [PK],
+RegistrationDate, CustomerID, CustomerName,
+CustomerGender, CustomerAddress,
+CustomerPhone, CustomerEmail, CustomerDOB,
+StaffName, StaffPosition)
+
+2NF
+//Pisahkan data yang bergantung pada sebagian PK (partial dependency)
+
+Registrasi(RegistrationID [PK],
+RegistrationDate, CustomerID, CustomerName,
+CustomerGender, CustomerAddress,
+CustomerPhone, CustomerEmail, CustomerDOB,
+StaffName, StaffPosition)
+
+3NF
+//Transitive Dependency
+
+Registrasi(RegistrationID [PK],
+RegistrationDate, CustomerID [FK],
+StaffID [FK])
+
+Customer(CustomerID [PK], CustomerName,
+CustomerGender, CustomerAddress,
+CustomerPhone, CustomerEmail, CustomerDOB)
+
+Staff(StaffID [PK], StaffName, StaffPositionID [FK])
+
+StaffPosition(StaffPositionID[PK], StaffPositionName)

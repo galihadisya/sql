@@ -1,0 +1,23 @@
+Registrasi(RegistrationID [PK], RegistrationDate, CustomerID [FK], StaffID [FK])
+
+1. Customer(CustomerID [PK], CustomerName, CustomerGender, CustomerAddress, CustomerPhone, CustomerEmail, CustomerDOB, CustomerPassword)
+
+2. Staff(StaffID [PK], StaffName, StaffPositionID [FK])
+
+3. StaffPosition(StaffPositionID[PK], StaffPositionName)
+
+HeaderTransaction(TransactionID [PK], TransactionDate, PaymentType, CustomerID [FK], StaffID [FK]) 
+
+DetailTransaction(TransactionID[PK][FK], ItemID [PK][FK], 
+SellQuantity)
+
+4. Item(ItemID[PK], ItemName, ItemTypeID [FK], ItemPrice)
+
+5. ItemType(ItemTypeID [PK], ItemTypeName)
+
+//COPY HASIL 3NF DARI NORMALISASI DATABASE TOKO DAN INVOICE, lalu hapus yang sama, 
+gunakan tabel dengan isi terbanyak
+
+//Buat tabel yang diberi nomor urut terlebih dahulu, 
+tabel Registrasi, HeaderTransaction, DetailTransaction bukan tabel dasar, 
+melainkan tabel yang hanya dibutuhkan ketika kita ingin melakukan sesuatu yang tertentu seperti Registrasi

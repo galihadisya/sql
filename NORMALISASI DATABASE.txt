@@ -1,0 +1,56 @@
+//Transaksi
+UNF
+Transaction(TransactionID, TransactionDate,
+PaymentType, CustomerID, CustomerName, CustomerAddress,
+{No, ItemID, ItemName, ItemType, ItemPrice, SellQuantity,
+Subtotal}, Total, StaffName, StaffPosition) //yg di dalam kurung kurawal data bisa berulang
+
+1NF
+//Hapus kolom yang didapatkan dari hasil perhitungan DONE
+//Hapus kolom yang tidak diperlukan DONE
+//pisahkan data yang berulang
+//tambahkan primary key
+
+HeaderTransaction(TransactionID [PK], TransactionDate, 
+PaymentType, CustomerID, CustomerName, CustomerAddress, 
+StaffName, StaffPosition)
+
+DetailTransaction(TransactionID[PK][FK], ItemID [PK], 
+ItemName, ItemType, ItemPrice, SellQuantity)
+
+2NF
+//Pisahkan data yang bergantung pada sebagian PK (partial dependency)
+
+HeaderTransaction(TransactionID [PK], TransactionDate, 
+PaymentType, CustomerID, CustomerName, CustomerAddress, 
+StaffName, StaffPosition)
+
+DetailTransaction(TransactionID[PK][FK], ItemID [PK][FK], 
+SellQuantity)
+
+Item(ItemID[PK], ItemName, ItemType, ItemPrice) 
+
+3NF
+//Transitive Dependency
+
+HeaderTransaction(TransactionID [PK], TransactionDate, PaymentType, 
+CustomerID [FK], StaffID [FK]) 
+
+/*dipisah pisah lagi jadi seperti di bawah, ada tabel staff, staffposition, 
+  dan customer(yang sekiranya bisa dikelompokkan lagi dan akan ada penambahan data) */
+
+Staff(StaffID [PK], StaffName, StaffPositionID [FK])
+
+StaffPosition(StaffPositionID [PK], StaffPositionName)
+
+Customer(CustomerID[PK], CustomerName, 
+CustomerAddress, CustomerGender, CustomerPhone, 
+CustomerDOB, CustomerEmail, CustomerPassword)
+
+DetailTransaction(TransactionID[PK][FK], ItemID [PK][FK], 
+SellQuantity)
+
+Item(ItemID[PK], ItemName, ItemTypeID [FK], ItemPrice)
+
+ItemType(ItemTypeID [PK], ItemTypeName) 
+
